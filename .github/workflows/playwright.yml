@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: smoke-test-html-report
-          path: report/html_report/
+          path: C:/Users/ADMIN/Documents/Personal_Git/Test_DemoProject123-/report/html_report
