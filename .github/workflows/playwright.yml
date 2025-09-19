@@ -7,33 +7,34 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: ⚙️ Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: 🚀 Run smokeStage:P2P script
+      - name: Run smokeStage:P2P script
         run: npm run smokeStage:P2P
 
-      - name: 🛠️ Run reporter directly
-        run: node reporter.js
+      - name: Debug – list report folder after test
+        run: dir report
 
-      - name: 🕵️ Debug – List contents of report directory
-        run: |
-          if (Test-Path -Path "report") {
-            Write-Host "✅ Report folder exists"
-            Get-ChildItem -Recurse report
-          } else {
-            Write-Host "❌ Report folder is missing"
-          }
+      - name: Debug – check TestData.json presence
+        run: dir features\support\Testdata
 
-      - name: 📤 Upload test report (HTML)
+      - name: Run reporter
+        run: npm run reporter
+
+      - name: Debug – list html_report directory
+        continue-on-error: true
+        run: dir report\html_report
+
+      - name: Upload test report (HTML)
         uses: actions/upload-artifact@v4
         with:
           name: smoke-test-report
