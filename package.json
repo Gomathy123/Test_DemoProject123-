@@ -1,0 +1,36 @@
+{
+  "name": "BustleWebAutomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "smoke": "set ENV=stage && cucumber-js --require features/support/world.js --require features/support/hooks.js --require features/step_definitions/*.js -f summary -f json:report/cucumber_report.json --tags \"@Login\" & npm run reporter",
+    "smoke1": "set ENV=stage && cucumber-js --require features/support/world.js --require features/support/hooks.js  --require features/step_definitions/*.js -f summary -f json:report/cucumber_report.json --tags \"@CarrierLogin and @TripRejectLH \" & npm run reporter",
+    "smokeStage:P2P": "set ENV=stage && cucumber-js --require features/support/world.js --require features/support/hooks.js  --require features/step_definitions/*.js -f summary -f json:report/cucumber_report.json --tags \"@Login or @QB81\" & npm run reporter",
+    "reporter": "node reporter.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.6.0",
+    "@cucumber/pretty-formatter": "^1.0.1",
+    "@playwright/test": "^1.52.0",
+    "allure-playwright": "^2.0.0-beta.15",
+    "cross-env": "^7.0.3",
+    "cucumber": "^6.0.7",
+    "cucumber-html-reporter": "^6.0.0",
+    "playwright": "^1.44.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "chrome-remote-interface": "^0.33.2",
+    "cjs-loader": "^0.1.0",
+    "csv-parser": "^3.0.0",
+    "cucumber-html-report-generator": "^1.0.33",
+    "dayjs": "^1.11.18",
+    "multiple-cucumber-html-reporter": "^3.6.2",
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5"
+  }
+}
