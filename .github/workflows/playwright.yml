@@ -18,16 +18,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run smokeStage:P2P script
+      - name:  Run smokeStage:P2P script
         run: npm run smokeStage:P2P
 
-      - name: Generate HTML report
+      - name:  List report folder after test run
+        continue-on-error: true
+        run: dir report
+
+      - name:  Run reporter.js to generate HTML report
         run: npm run reporter
 
-      - name: Check generated HTML report
+      - name:  List contents of html_report directory
+        continue-on-error: true
         run: dir report\html_report
 
-      - name: Upload test report
+      - name: Upload test report (HTML)
         uses: actions/upload-artifact@v4
         with:
           name: smoke-test-report
