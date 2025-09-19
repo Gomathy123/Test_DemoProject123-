@@ -6,7 +6,8 @@
   "scripts": {
     "smoke": "set ENV=stage && cucumber-js --require features/support/world.js --require features/support/hooks.js --require features/step_definitions/*.js -f summary -f json:report/cucumber_report.json --tags \"@Login\" & npm run reporter",
     "smoke1": "set ENV=stage && cucumber-js --require features/support/world.js --require features/support/hooks.js  --require features/step_definitions/*.js -f summary -f json:report/cucumber_report.json --tags \"@CarrierLogin and @TripRejectLH \" & npm run reporter",
-    "smokeStage:P2P": "set ENV=stage && cucumber-js --require features/support/world.js --require features/support/hooks.js  --require features/step_definitions/*.js -f summary -f json:report/cucumber_report.json --tags \"@Login or @QB81\" & npm run reporter",
+    
+    "smokeStage:P2P": "mkdir report && set ENV=stage && npx cucumber-js --require features/support/world.js --require features/support/hooks.js --require features/step_definitions/*.js -f json:report/cucumber_report.json",
     "reporter": "node reporter.js"
   },
   "keywords": [],
