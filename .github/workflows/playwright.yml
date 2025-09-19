@@ -7,10 +7,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -18,17 +18,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run smokeStage:P2P script
+      - name: Install Playwright browsers
+        run: npx playwright install
+
+      - name: Run Smoke Tests
         run: npm run smokeStage:P2P
 
-      - name: Show cucumber_report.json content (debug)
+      - name: Confirm JSON was created
         run: type report\cucumber_report.json
 
-      - name: Run reporter.js to generate HTML report
+      - name: Generate HTML Report
         run: node reporter.js
 
-      - name: Upload HTML report artifact
+      - name: Show generated report folder
+        run: dir report\html_report
+
+      - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:
-          name: smoke-test-html-report
-          path: C:/Users/ADMIN/Documents/Personal_Git/Test_DemoProject123-/report/html_report
+          name: smoke-html-report
+          path: report/html_report/
