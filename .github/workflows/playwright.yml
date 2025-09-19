@@ -1,9 +1,15 @@
+name: Smoke Test - P2P
+
+on: [push, pull_request]
+
 jobs:
   smoke-test:
     runs-on: windows-latest
+
     steps:
-      - uses: actions/checkout@v3
-      
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -15,14 +21,11 @@ jobs:
       - name: Run smokeStage:P2P script
         run: npm run smokeStage:P2P
 
-      - name: Check if JSON report exists
-        run: dir report
-
       - name: Generate HTML report
         run: npm run reporter
 
       - name: Check generated HTML report
-        run: dir report/html_report
+        run: dir report\html_report
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
