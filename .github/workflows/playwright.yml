@@ -21,8 +21,13 @@ jobs:
       - name: Run smokeStage:P2P script
         run: npm run smokeStage:P2P
 
+      # For Cucumber: Generate HTML report from JSON
+      - name: Generate HTML report
+        run: npm run generate-report
+        # Remove this step if not using Cucumber or if Playwright generates html directly
+
       - name: Upload test report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: smoke-test-report
           path: report/
