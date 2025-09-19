@@ -27,7 +27,7 @@ jobs:
         # Remove this step if not using Cucumber or if Playwright generates html directly
 
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: smoke-test-report
           path: report/
