@@ -2,7 +2,7 @@ name: Smoke Test - P2P
 
 on: [push, pull_request]
 
- jobs:
+jobs:
   smoke-test:
     runs-on: windows-latest
 
