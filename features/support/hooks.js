@@ -45,7 +45,7 @@ BeforeAll(async function () {
     global.page = await global.context.newPage();
      global.page.on('load', async () => {
         await page.evaluate(() => {
-            const scale = 0.50;
+            const scale = 0.90;
             document.body.style.transform = `scale(${scale})`;
             document.body.style.transformOrigin = '0 0';  // Set transform origin to top-left
             document.body.style.position = 'absolute';    // Ensure the body takes up the entire viewport
