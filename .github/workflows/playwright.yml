@@ -20,6 +20,12 @@ jobs:
 
      - name: Install Playwright browsers
        run: npx playwright install --with-deps
+     - name: Install Google Chrome
+       shell: powershell
+       run: |
+           Invoke-WebRequest -Uri "https://dl.google.com/chrome/install/latest/chrome_installer.exe" -OutFile "chrome_installer.exe"
+           Start-Process -FilePath "chrome_installer.exe" -ArgumentList "/silent", "/install" -NoNewWindow -Wait
+           Remove-Item "chrome_installer.exe"
 
      - name: Run Smoke Tests
        run: npm run smokeStage:P2P
