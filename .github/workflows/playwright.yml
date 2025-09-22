@@ -25,16 +25,16 @@ jobs:
         run: npm run smokeStage:P2P
 
       - name: Confirm JSON was created
-        run: type report\cucumber_report.json
+        run: type report/cucumber_report.json
 
       - name: Generate HTML Report
         run: node reporter.js
 
       - name: Show generated report folder
-        run: dir report\html_report
+        run: dir report/html_report
 
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
         with:
           name: smoke-html-report
-          path: report/html_report/
+          path: report/html_report
