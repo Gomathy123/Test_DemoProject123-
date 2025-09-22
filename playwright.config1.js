@@ -18,6 +18,7 @@ const config = {
       use: {
 
         browserName : 'chromium',
+        channel: 'chrome',
         launchOptions: {
           args: ["--start-maximized"]
       } ,
