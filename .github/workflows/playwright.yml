@@ -60,5 +60,5 @@ on: [push, pull_request]
      - name: Install Playwright browsers
        run: npx playwright install --with-deps
 
-     - name: Run Playwright tests
-       run: npx playwright test
+     - name: Run Smoke Tests
+       run: npm run smokeStage:P2P
