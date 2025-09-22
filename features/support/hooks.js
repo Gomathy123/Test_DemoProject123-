@@ -45,7 +45,7 @@ BeforeAll(async function () {
     global.page = await global.context.newPage();
      global.page.on('load', async () => {
         await page.evaluate(() => {
-            const scale = 0.70;
+            const scale = 0.50;
             document.body.style.transform = `scale(${scale})`;
             document.body.style.transformOrigin = '0 0';  // Set transform origin to top-left
             document.body.style.position = 'absolute';    // Ensure the body takes up the entire viewport
@@ -70,7 +70,7 @@ BeforeAll(async function () {
     // global.page3 = await global.context2.newPage();
     // global.page3.on('load', async () => {
     //     await page.evaluate(() => {
-    //         const scale = 0.70;
+    //         const scale = 0.50;
     //         document.body.style.transform = `scale(${scale})`;
     //         document.body.style.transformOrigin = '0 0';  // Set transform origin to top-left
     //         document.body.style.position = 'absolute';    // Ensure the body takes up the entire viewport
