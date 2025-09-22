@@ -40,16 +40,16 @@ BeforeAll(async function () {
     global.page = await global.context.newPage();
 
     // Optional zoom only if not running in CI (local debugging)
-    if (!process.env.CI) {
-        try {
-            await global.page.evaluate(() => {
-                document.body.style.zoom = '90%';
-            });
-            console.log('\x1b[32mApplied 90% zoom for local environment.\x1b[0m');
-        } catch (error) {
-            console.warn('\x1b[33mFailed to apply zoom:\x1b[0m', error);
-        }
-    }
+    // if (!process.env.CI) {
+    //     try {
+    //         await global.page.evaluate(() => {
+    //             document.body.style.zoom = '90%';
+    //         });
+    //         console.log('\x1b[32mApplied 90% zoom for local environment.\x1b[0m');
+    //     } catch (error) {
+    //         console.warn('\x1b[33mFailed to apply zoom:\x1b[0m', error);
+    //     }
+    // }
 
     console.log("<========================== Browser instance created ================================>");
 });
