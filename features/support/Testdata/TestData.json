@@ -19,7 +19,7 @@
     }
   },
   "Execution_Time": {
-    "OverAllTime": "0h 5m 4s"
+    "OverAllTime": "0h 4m 40s"
   },
   "FeatureName": {
     "Feature": "Validate Consignment Creation for P2P Movement"
@@ -94,7 +94,7 @@
     "ReceiverFirstName": "Test",
     "ReceiverLastName": "receiverr",
     "FuelLevy": "11.5",
-    "ExitTime": "12:21 PM",
+    "ExitTime": "2:01 PM",
     "DeadWeight": "DW FLAT AUTOMATION - DW Flat Automation",
     "DeadWeightCode": "DW Flat Automation",
     "Value": "10",
