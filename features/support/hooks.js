@@ -38,7 +38,7 @@ BeforeAll(async function () {
     });
 
     global.page = await global.context.newPage();
-
+//
     // Optional zoom only if not running in CI (local debugging)
     // if (!process.env.CI) {
     //     try {
